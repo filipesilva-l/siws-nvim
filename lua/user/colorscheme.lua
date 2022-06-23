@@ -7,8 +7,12 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 ]]
 
-function _G.set_light()
+local M = {}
+
+function M.set_light()
   vim.opt.background = "light"
   vim.cmd("colorscheme gruvbox")
 end
+
+return M
 
