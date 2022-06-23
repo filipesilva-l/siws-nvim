@@ -159,7 +159,7 @@ return packer.startup(function(use)
   }
 
   use { "mfussenegger/nvim-dap", config = function()
-    require("user.dap");
+    require("user.dap-config");
   end }
 
   use {
