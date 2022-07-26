@@ -1,7 +1,7 @@
 local ls_ok, ls = pcall(require, "luasnip")
 
 if not ls_ok then
-  return
+  return;
 end
 
 local s = ls.snippet
@@ -9,7 +9,7 @@ local i = ls.insert_node
 local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
-function _G.split(inputstr, sep)
+local function split(inputstr, sep)
   if sep == nil then
     sep = "%s"
   end
@@ -20,7 +20,7 @@ function _G.split(inputstr, sep)
   return result
 end
 
-function _G.scandir(directory)
+local function scandir(directory)
   local index, result, popen = 0, {}, io.popen
   local pfile = popen('ls -a "' .. directory .. '"')
   for filename in pfile:lines() do
@@ -31,7 +31,11 @@ function _G.scandir(directory)
   return result
 end
 
-function _G.compose_namespace(dir)
+local function trim(value)
+  return (value:gsub("^%s*(.-)%s*$", "%1"))
+end
+
+local function compose_namespace(dir)
   local namespace = ""
   local has_csproj = false
 
@@ -74,10 +78,6 @@ function _G.compose_namespace(dir)
   namespace = trim(namespace:gsub("%.", " ")):gsub("%s+", ".")
 
   return namespace
-end
-
-function _G.trim(value)
-  return (value:gsub("^%s*(.-)%s*$", "%1"))
 end
 
 local function get_current_buffer_filename()
@@ -165,4 +165,4 @@ local cs_snippets = {
   ),
 }
 
-ls.add_snippets("cs", cs_snippets)
+return cs_snippets

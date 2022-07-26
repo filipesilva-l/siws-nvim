@@ -181,7 +181,7 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     T = { "<cmd>TodoTelescope<CR>", "TODOs" },
     p = {
-      "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
+      "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
     }
   },

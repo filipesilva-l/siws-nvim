@@ -115,8 +115,6 @@ return packer.startup(function(use)
   use { "tpope/vim-repeat" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ThePrimeagen/harpoon" }
-  use { "vimsence/vimsence" }
-  use { "nvim-treesitter/playground" }
   use {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
@@ -158,53 +156,55 @@ return packer.startup(function(use)
     end,
   }
 
-  use { "mfussenegger/nvim-dap", config = function()
-    require("user.dap-config");
-  end }
+  --use { "mfussenegger/nvim-dap", config = function()
+  --  require("user.dap-config");
+  --end }
 
-  use {
-    "rcarriga/nvim-dap-ui",
-    requires = { "mfussenegger/nvim-dap" },
-    config = function()
-      local dap, dapui = require("dap"), require("dapui")
+  --use {
+  --  "rcarriga/nvim-dap-ui",
+  --  requires = { "mfussenegger/nvim-dap" },
+  --  config = function()
+  --    local dap, dapui = require("dap"), require("dapui")
 
-      dapui.setup();
+  --    dapui.setup();
 
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end
-  }
-  use {
-    "theHamsta/nvim-dap-virtual-text",
-    requires = { "mfussenegger/nvim-dap" },
-    config = function()
-      require "nvim-dap-virtual-text".setup()
-    end
-  }
+  --    dap.listeners.after.event_initialized["dapui_config"] = function()
+  --      dapui.open()
+  --    end
+  --    dap.listeners.before.event_terminated["dapui_config"] = function()
+  --      dapui.close()
+  --    end
+  --    dap.listeners.before.event_exited["dapui_config"] = function()
+  --      dapui.close()
+  --    end
+  --  end
+  --}
+  --use {
+  --  "theHamsta/nvim-dap-virtual-text",
+  --  requires = { "mfussenegger/nvim-dap" },
+  --  config = function()
+  --    require "nvim-dap-virtual-text".setup()
+  --  end
+  --}
+
   use { "nvim-treesitter/nvim-treesitter-context", requires = "nvim-treesitter/nvim-treesitter" }
 
   -- Colorschemes
-  use "lourenci/github-colors"
-  use "shaeinst/roshnivim-cs"
-  use "rafamadriz/neon"
-  use "marko-cerovac/material.nvim"
-  use "folke/tokyonight.nvim"
-  use "olimorris/onedarkpro.nvim"
-  use "zefei/cake16"
-  use "morhetz/gruvbox"
-  use "dracula/vim"
-  use "catppuccin/nvim"
-  use "bluz71/vim-nightfly-guicolors"
-  use "kyazdani42/blue-moon"
-  use "frenzyexists/aquarium-vim"
-  use "rose-pine/neovim"
+  --use "lourenci/github-colors"
+  --use "shaeinst/roshnivim-cs"
+  --use "rafamadriz/neon"
+  --use "marko-cerovac/material.nvim"
+  --use "folke/tokyonight.nvim"
+  --use "olimorris/onedarkpro.nvim"
+  --use "zefei/cake16"
+  --use "dracula/vim"
+  --use "catppuccin/nvim"
+  --use "bluz71/vim-nightfly-guicolors"
+  --use "kyazdani42/blue-moon"
+  --use "frenzyexists/aquarium-vim"
+  --use "rose-pine/neovim"
+  --use "Shadorain/shadotheme"
+  use "sainnhe/gruvbox-material"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"
@@ -215,7 +215,7 @@ return packer.startup(function(use)
 
   -- snippets
   use { "L3MON4D3/LuaSnip", config = function()
-    require("user.custom_snippets.csharp_snippets");
+    require("luasnip.loaders.from_lua").lazy_load({paths = "~/.config/nvim/lua/user/custom_snippets"})
   end }
 
   -- LSP

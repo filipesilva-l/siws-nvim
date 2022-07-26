@@ -24,7 +24,7 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
-	return "siws"
+	return "memento mori"
 end
 
 dashboard.section.footer.val = footer()
