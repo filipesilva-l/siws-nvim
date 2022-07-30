@@ -94,24 +94,6 @@ return packer.startup(function(use)
       vim.g.gitblame_enabled = 0
     end,
   }
-  use {
-    "karb94/neoscroll.nvim",
-    event = "WinScrolled",
-    config = function()
-      require('neoscroll').setup({
-        mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
-          '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-        hide_cursor = true,
-        stop_eof = true,
-        use_local_scrolloff = false,
-        respect_scrolloff = false,
-        cursor_scrolls_alone = true,
-        easing_function = nil,
-        pre_hook = nil,
-        post_hook = nil,
-      })
-    end
-  }
   use { "tpope/vim-repeat" }
   use { "tpope/vim-surround", keys = { "c", "d", "y" } }
   use { "ThePrimeagen/harpoon" }
@@ -190,20 +172,20 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter-context", requires = "nvim-treesitter/nvim-treesitter" }
 
   -- Colorschemes
-  --use "lourenci/github-colors"
-  --use "shaeinst/roshnivim-cs"
-  --use "rafamadriz/neon"
-  --use "marko-cerovac/material.nvim"
-  --use "folke/tokyonight.nvim"
-  --use "olimorris/onedarkpro.nvim"
-  --use "zefei/cake16"
-  --use "dracula/vim"
-  --use "catppuccin/nvim"
-  --use "bluz71/vim-nightfly-guicolors"
-  --use "kyazdani42/blue-moon"
-  --use "frenzyexists/aquarium-vim"
-  --use "rose-pine/neovim"
-  --use "Shadorain/shadotheme"
+  use "lourenci/github-colors"
+  use "shaeinst/roshnivim-cs"
+  use "rafamadriz/neon"
+  use "marko-cerovac/material.nvim"
+  use "folke/tokyonight.nvim"
+  use "olimorris/onedarkpro.nvim"
+  use "zefei/cake16"
+  use "dracula/vim"
+  use "catppuccin/nvim"
+  use "bluz71/vim-nightfly-guicolors"
+  use "kyazdani42/blue-moon"
+  use "frenzyexists/aquarium-vim"
+  use "rose-pine/neovim"
+  use "Shadorain/shadotheme"
   use "sainnhe/gruvbox-material"
 
   -- cmp plugins
